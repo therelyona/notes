@@ -1,0 +1,259 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: linear-gradient(135deg, #fefaf5, #e9e8e4);
+  color: #333;
+  min-height: 100vh; /* чтобы фон охватывал всю страницу */
+}
+
+.container {
+  width: 90%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding-top: 40px;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+h1 {
+  font-size: 36px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #4a4a4a;
+  animation: fadeInDown 1s ease-out;
+}
+
+/* поля для новой заметки */
+.note-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.note-input {
+  width: 100%;
+  padding: 15px;
+  font-size: 18px;
+  border: 1px solid #d1d1d1;
+  border-radius: 10px;
+  background-color: #fdf8f6;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.note-input:focus {
+  border-color: #d4eac7;
+  box-shadow: 0 4px 12px rgba(212, 234, 199, 0.2);
+}
+
+/* кнопка сохранить */
+.save-area {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.save-btn {
+  width: 100%;
+  padding: 12px 24px;
+  font-size: 18px;
+  background-color: #f7c4c4;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.save-btn:hover {
+  background-color: #f9dada;
+  transform: translateY(-3px);
+}
+
+.save-btn:active {
+  transform: translateY(1px);
+}
+
+/* поле для поиска */
+.search-area {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.search-input {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #d1d1d1;
+  border-radius: 10px;
+  background-color: #fdf8f6;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.search-input:focus {
+  border-color: #d4eac7;
+  box-shadow: 0 4px 12px rgba(212, 234, 199, 0.2);
+}
+
+/* список заметок */
+main {
+  margin-bottom: 30px;
+}
+
+.notes-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.note-card {
+  background-color: #ffffff;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s ease;
+  transform: translateZ(0);
+  animation: fadeInUp 0.7s ease-out;
+}
+
+.note-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.note-content {
+  display: flex;
+  align-items: center;
+}
+
+.dino-icon {
+  margin-right: 10px;
+  font-size: 24px;
+}
+
+.note-text {
+  font-size: 18px;
+  color: #4a4a4a;
+}
+
+/* теги */
+.tag {
+  background-color: #eaf8e4;
+  border-radius: 8px;
+  padding: 5px 10px;
+  font-size: 14px;
+  margin-right: 10px;
+  color: #4a4a4a;
+}
+
+.note-details {
+  display: flex;
+  align-items: center;
+}
+
+/* кнопки редактирования и удаления */
+.edit-btn, .delete-btn {
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.edit-btn:hover, .delete-btn:hover {
+  transform: scale(1.2);
+}
+
+.footer {
+  margin-top: 20px;
+  padding-bottom: 10px;
+  text-align: center;
+  font-size: 14px;
+  color: #888;
+}
+
+.link {
+  color: #888;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.link:hover {
+  color: #333;
+}
+
+
+/* анимации */
+@keyframes fadeInUp {
+  from {
+      opacity: 0;
+      transform: translateY(10px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+      opacity: 0;
+      transform: translateY(-10px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+/* адаптивные стили */
+@media (max-width: 768px) {
+  .container {
+      width: 90%;
+  }
+
+  .note-inputs, .save-btn, .search-input, .note-card {
+      font-size: 16px;
+  }
+
+  h1 {
+      font-size: 28px;
+  }
+
+  .note-text {
+      font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+      font-size: 24px;
+  }
+
+  .note-input, .save-btn, .search-input {
+      padding: 10px;
+  }
+
+  .note-text {
+      font-size: 14px;
+  }
+
+  .tag {
+      font-size: 12px;
+  }
+}
