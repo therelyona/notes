@@ -7,8 +7,11 @@
 ## Features
 
 ✍️ **Create notes**
+
 🗑️ **Edit and delete**
+
 🔍 **Search**
+
 📂 **Local Storage**: All your notes are saved even if you refresh the page — they're always within reach!
 
 ## Technologies
