@@ -1,4 +1,4 @@
-# Notes 📝
+# Notes📝
 
 ## Description
 
@@ -19,3 +19,5 @@
 - HTML5
 - CSS3
 - JavaScript (ES6+)
+
+> Test my app here: [Notes📝](https://therelyona.github.io/notes/)
