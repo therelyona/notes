@@ -8,6 +8,13 @@ const elements = {
   noteText: document.getElementById('noteText'),
   noteTags: document.getElementById('noteTags'),
   saveNote: document.getElementById('saveNote'),
+  searchInput: document.getElementById('searchInput'),
+};
+
+const deleteNote = (index) => {
+  notes.splice(index, 1);
+  localStorage.setItem('notes', JSON.stringify(notes));
+  updateDisplay();
 };
 
 const editNote = (index) => {
@@ -21,8 +28,10 @@ const updateDisplay = () => {
   notes.forEach((_, index) => {
     const noteElements = elements.notesList.children[index];
     const editBtn = noteElements.querySelector('.edit-btn');
+    const deleteBtn = noteElements.querySelector('.delete-btn');
 
     editBtn.addEventListener('click', () => editNote(index));
+    deleteBtn.addEventListener('click', () => deleteNote(index));
   });
 };
 
@@ -43,6 +52,14 @@ elements.saveNote.addEventListener('click', () => {
   elements.noteText.value = '';
   elements.noteTags.value = '';
   editIndex = null;
+});
+
+elements.searchInput.addEventListener('input', () => {
+  const searchTerm = elements.searchInput.value.toLowerCase();
+  const filteredNotes = notes.filter((note) => note.text.toLowerCase().includes(searchTerm)
+    || note.tags.toLowerCase().includes(searchTerm));
+
+  displayNotes(filteredNotes, elements);
 });
 
 updateDisplay();
